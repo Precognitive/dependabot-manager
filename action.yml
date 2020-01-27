@@ -1,0 +1,9 @@
+name: 'Auto-assign dependabot PRs'
+description: 'Add reviewers and assignees to dependabot PRs'
+inputs:
+  token:  # github access token
+    description: 'Token that has permissions to the org and the reps'
+    required: true
+runs:
+  using: 'node12'
+  main: 'index.js'
