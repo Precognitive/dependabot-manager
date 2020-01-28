@@ -6,6 +6,7 @@ async function run() {
   const { number } = github.context.payload;
 
   const token = core.getInput('token');
+  const assignees = core.getInput('assignees');
   const octokit = new github.GitHub(token);
 
   try {
@@ -20,7 +21,7 @@ async function run() {
       owner,
       repo,
       issue_number: number,
-      assignees: ['zrosenbauer', 'polson136']
+      assignees: assignees
     });
   } catch (error) {
     core.setFailed(error.message);
