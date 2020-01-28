@@ -5,7 +5,10 @@ inputs:
     description: 'Token that has permissions to the org and the reps'
     required: true
   assignees:
-    description: 'List of GitHub user names'
+    description: 'String of GitHub user names separated by a comma'
+    required: true
+  team_reviewers:
+    description: 'String of GitHub teams separated by a comma'
     required: true
 runs:
   using: 'node12'

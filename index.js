@@ -6,7 +6,8 @@ async function run() {
   const { number } = github.context.payload;
 
   const token = core.getInput('token');
-  const assignees = core.getInput('assignees');
+  const assignees = core.getInput('assignees').split(',');
+  const teamReviewers = core.getInput('team_reviewers').split(',');
   const octokit = new github.GitHub(token);
 
   try {
@@ -14,7 +15,7 @@ async function run() {
       owner,
       repo,
       pull_number: number,
-      team_reviewers: ['software-engineers']
+      team_reviewers: teamReviewers
     });
 
     await octokit.issues.addAssignees({
